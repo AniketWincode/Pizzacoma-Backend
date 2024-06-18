@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const serverConfig = require('./config/serverConfig')
 // const { connect } = require("mongoose")
 const connectDB = require('./config/dbConfig')
+const User = require("./schema/userSchema")
 
 const app = express()
 
@@ -16,6 +17,17 @@ app.listen(serverConfig.PORT, async () => {
     // console.log(process.env.PORT)
     await connectDB();
     console.log(`Server started at port ${serverConfig.PORT}`);
+
+    const newUser = await User.create({
+        email : 'a@b.com',
+        password : '123456',
+        firstName : "Johnthan",
+        lastName : 'Majoras',
+        mobileNumber : '1231231231'
+    });
+
+    console.log('Created new user');
+    console.log(newUser);
 })
 
 

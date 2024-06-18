@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema({
     mobileNumber : {
         type : String,
         trim : true,
-        maxlength : [true, "Phone number should be of length 10"],
-        minlength : [true, "Phone number should be of length 10"],
+        maxlength : [10, "Phone number should be of length 10"],
+        minlength : [10, "Phone number should be of length 10"],
         unique : [true, "Phone number is already in use"],
         required : [true, "Phone number should be provided"]
     },
